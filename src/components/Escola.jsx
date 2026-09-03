@@ -3,17 +3,20 @@ import Thread from './Thread'
 import { useReveal } from '../lib/reveal'
 import { textos, confianca } from '../data/escola'
 
+// Termina na borda interna da calha (t = 1): é de lá que o trecho seguinte
+// puxa a travessia para o outro lado, por cima da onda.
 const ROTA = [
-  { t: 0.5, y: -0.04 },
-  { t: 0.95, y: 0.26 },
-  { t: 0.3, y: 0.58 },
-  { t: 0.9, y: 0.9 },
-  { t: 0.55, y: 1.04 },
+  { t: 0.5, y: -0.09 },
+  { t: 0.95, y: 0.24 },
+  { t: 0.2, y: 0.56 },
+  { t: 0.9, y: 0.86 },
+  { t: 1, y: 1.0 },
 ]
 
 export default function Escola() {
   const host = useRef(null)
-  useReveal(host)
+  // O campo azul chega inteiro, de baixo: é a virada de cor da página.
+  useReveal(host, '[data-reveal]', { from: { opacity: 0, y: 40 }, to: { duration: 1.3 } })
 
   return (
     <section className="section on-blue" id="escola" ref={host}>

@@ -9,9 +9,9 @@ import { escola, textos, whatsappUrl, CTA_PADRAO } from '../data/escola'
 const ROTA = [
   { t: 0.55, y: 0.08 },
   { t: 0.95, y: 0.34 },
-  { t: 0.35, y: 0.62 },
-  { t: 0.85, y: 0.88 },
-  { t: 0.5, y: 1.06 },
+  { t: 0.25, y: 0.62 },
+  { t: 0.9, y: 0.88 },
+  { t: 0.5, y: 1.0 },
 ]
 
 export default function Hero() {
@@ -25,9 +25,9 @@ export default function Hero() {
         .timeline({ defaults: { ease: 'expo.out' } })
         .from('[data-lift="mark"]', { scale: 0.9, opacity: 0, duration: 1.5 })
         .from('[data-lift="nome"]', { yPercent: 105, opacity: 0, duration: 1.2 }, 0.18)
+        .from('[data-lift="plate"]', { opacity: 0, duration: 0.9 }, 0.42)
         .from('[data-lift="lema"]', { opacity: 0, y: 16, duration: 1 }, 0.5)
         .from('[data-lift="act"]', { opacity: 0, y: 20, duration: 1 }, 0.62)
-        .from('[data-lift="plate"]', { opacity: 0, y: 16, duration: 1 }, 0.74)
         .from('[data-lift="cue"]', { opacity: 0, duration: 0.9 }, 0.9)
     },
     { scope: host },
@@ -50,6 +50,13 @@ export default function Hero() {
             fetchpriority="high"
           />
         </div>
+
+        <p className="hero-plate" data-lift="plate">
+          <span className="plate-face">
+            <span className="plate-word">Desde</span>
+            <span className="plate-year">1985</span>
+          </span>
+        </p>
 
         <h1 className="display hero-nome">
           <span className="hero-nome-linha">
@@ -79,12 +86,6 @@ export default function Hero() {
           </a>
         </div>
 
-        <p className="hero-plate" data-lift="plate">
-          <span className="plate-face">
-            <span className="plate-word">Desde</span>
-            <span className="plate-year">{escola.desde}</span>
-          </span>
-        </p>
       </div>
 
       <span className="hero-cue" data-lift="cue" aria-hidden="true">

@@ -4,12 +4,17 @@ import Glyph from './Glyph'
 import { useReveal } from '../lib/reveal'
 import { percurso, estrutura, textos } from '../data/escola'
 
+// Começa na calha da esquerda (t = 2, o outro lado) na altura da onda e
+// atravessa a página desenhando, em vez de a linha morrer no ar de um lado e
+// renascer no outro.
 const ROTA = [
-  { t: 0.5, y: -0.04 },
-  { t: 0.9, y: 0.22 },
-  { t: 0.3, y: 0.5 },
-  { t: 0.95, y: 0.78 },
-  { t: 0.55, y: 1.04 },
+  { t: 2, y: -0.075 },
+  { t: 1.45, y: -0.05 },
+  { t: 1, y: -0.018 },
+  { t: 0.85, y: 0.24 },
+  { t: 0.25, y: 0.52 },
+  { t: 0.95, y: 0.8 },
+  { t: 0.55, y: 1.0 },
 ]
 
 export default function Percurso() {
@@ -26,7 +31,7 @@ export default function Percurso() {
     <section className="section" id="percurso" ref={host}>
       <Thread
         points={ROTA}
-        nodes={[{ id: 'percurso', at: 1 }, { id: 'estrutura', at: 3 }]}
+        nodes={[{ id: 'percurso', at: 3 }, { id: 'estrutura', at: 5 }]}
         side="right"
       />
 

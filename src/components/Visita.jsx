@@ -5,22 +5,26 @@ import { useReveal } from '../lib/reveal'
 import { escola, mapsUrl, whatsappUrl, CTA_PADRAO, textos } from '../data/escola'
 
 const ROTA_ONDE = [
-  { t: 0.55, y: -0.04 },
-  { t: 0.95, y: 0.34 },
-  { t: 0.35, y: 0.7 },
-  { t: 0.6, y: 1.04 },
+  { t: 0.55, y: -0.06 },
+  { t: 0.95, y: 0.32 },
+  { t: 0.25, y: 0.68 },
+  { t: 0.6, y: 1.0 },
 ]
 
 const ROTA_CONTATO = [
-  { t: 0.6, y: -0.04 },
-  { t: 0.95, y: 0.36 },
-  { t: 0.4, y: 0.74 },
-  { t: 0.75, y: 1.02 },
+  { t: 0.6, y: -0.09 },
+  { t: 0.95, y: 0.34 },
+  { t: 0.3, y: 0.72 },
+  { t: 0.75, y: 1.0 },
 ]
 
 export function Localizacao() {
   const host = useRef(null)
-  useReveal(host)
+  // A carta se aproxima, como quem chega perto do mapa.
+  useReveal(host, '[data-reveal]', {
+    from: { opacity: 0, scale: 0.965, y: 12 },
+    to: { scale: 1, duration: 1.2, stagger: 0.1 },
+  })
 
   return (
     <section className="section onde" id="onde" ref={host}>
@@ -92,7 +96,12 @@ export function Localizacao() {
 
 export function Contato() {
   const host = useRef(null)
-  useReveal(host)
+  // O fechamento sobe mais e mais devagar: é o último degrau antes da ação.
+  useReveal(host, '[data-reveal]', {
+    from: { opacity: 0, y: 52 },
+    to: { duration: 1.45, stagger: 0.12 },
+    start: 'top 82%',
+  })
 
   return (
     <section className="section on-blue contato" id="contato" ref={host}>

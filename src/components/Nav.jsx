@@ -53,6 +53,7 @@ export default function Nav() {
           href={whatsappUrl(CTA_PADRAO)}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Falar com a escola no WhatsApp"
         >
           <Glyph name="whatsapp" size={19} />
           <span>WhatsApp</span>

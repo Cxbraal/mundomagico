@@ -21,7 +21,12 @@ gsap.registerPlugin(ScrollTrigger, useGSAP)
    `points` são `{ t, y }`. `y` é a fração da altura da seção. `t` é a posição
    dentro da calha lateral, de 0 (borda da tela) a 1 (junto do conteúdo) — e a
    calha é medida da largura real, então a linha nunca encosta no texto, em
-   nenhuma largura de tela. */
+   nenhuma largura de tela.
+
+   `t` acima de 1 atravessa para a calha do outro lado: 1 é a borda interna da
+   calha de casa, 2 é a borda interna da calha oposta. É assim que a linha
+   troca de lado sem terminar no ar — a travessia é desenhada, e acontece por
+   cima da onda, que é onde ela faz sentido. */
 
 export default function Thread({ points, nodes = [], side = 'left', start = 'top center' }) {
   const host = useRef(null)
@@ -111,12 +116,20 @@ export default function Thread({ points, nodes = [], side = 'left', start = 'top
    Espelha o cálculo de `.shell` no CSS — a mais estreita das colunas — para
    que a folga valha também nas seções que usam `.shell-mid`. */
 function calha(t, w, side) {
-  const gut = Math.min(Math.max(20, w * 0.04), 40)
+  const gut = Math.min(Math.max(28, w * 0.04), 42)
   const shell = Math.min(w - gut * 2, 1248)
   const margem = (w - shell) / 2
-  const util = Math.max(10, margem - 10)
+  const util = Math.max(18, margem - 6)
   const borda = 4
-  return side === 'right' ? w - borda - util * (1 - t) : borda + util * t
+
+  const esq = (u) => borda + util * u
+  const dir = (u) => w - borda - util * (1 - u)
+  const casa = side === 'right' ? dir : esq
+  const fora = side === 'right' ? esq : dir
+
+  if (t <= 1) return casa(t)
+  const k = Math.min(t - 1, 1)
+  return casa(1) + (fora(1) - casa(1)) * k
 }
 
 function nodeMarks(points, nodes, box) {

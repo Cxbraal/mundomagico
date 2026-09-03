@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#01203F" />
+    <meta name="theme-color" content="#ffffff" />
     <title>Colégio Mundo Mágico — Goioerê, PR · Educação Infantil ao 9º ano</title>
     <meta name="description" content="Colégio Mundo Mágico, em Goioerê no Paraná. Do berçário ao 9º ano do Ensino Fundamental, com a mesma gente cuidando desde 1985." />
     <link rel="icon" type="image/png" href="/mundomagico/img/logo-azul.png" />
@@ -15,27 +15,38 @@
   </head>
   <body>
     <!--
-      THESIS: O emblema da escola já é linha branca sobre azul profundo com um globo
-      meridianado — a página é esse emblema expandido até virar carta celeste. Recusa o
-      site de escola padrão (hero com foto de criança, três cards de segmento, quatro
-      pilares com ícone) e recusa o oposto previsível (blob infantil, arco-íris, varinha).
-      OWN-WORLD: azul profundo #01203F afogando 70%+ da superfície; #015BAF como segundo
-      campo; linha branca de gravação como única ferramenta de desenho, sem preenchimento
-      e sem card; retícula de coordenadas herdada dos meridianos do emblema regendo todo
-      alinhamento; Archivo variável — largura estreita e peso 800 no display, largura
-      normal e tracking aberto nas legendas; latão #C9963F uma vez só, na placa de 1985.
-      STORY: o pai entende em segundos que é uma escola de Goioerê que vai do berçário ao
-      9º ano, acredita nela pelos quarenta anos ininterruptos e pelo corpo docente, e sai
-      pelo WhatsApp.
-      FIRST VIEWPORT: emblema em escala de objeto celeste à direita, graticulado vivo em
-      volta cujos meridianos vazam da borda e viram a retícula da página; manchete
-      condensada à esquerda; linha de legenda de carta abaixo dela; placa de latão 1985
-      ancorando o canto; o único campo branco sólido da página inteira é o botão de
-      WhatsApp, no cruzamento da retícula.
-      FORM: carta celeste / planisfério escolar — candidato 7 da lista fundamentada,
-      atribuído pela rodada; seed 7a14471b.
-      FINISH: unreviewed and undocumented is unfinished; this build ends with the finish
-      review, the verdict, DESIGN.md, and every shipping raster carrying its provenance.
+      THESIS: O emblema da escola já é line-work com um globo meridianado — a
+      página é esse emblema expandido até virar carta celeste, agora impressa em
+      papel branco. Recusa o site de escola padrão (hero com foto de criança,
+      três cards de segmento, quatro pilares com ícone) e recusa o oposto
+      previsível (blob infantil, arco-íris, varinha).
+      OWN-WORLD: chão branco; azul de marca #015BAF como destaque que toma
+      regiões inteiras — "A escola" e o fechamento "Venha conhecer" são campos
+      azuis cheios, o fechamento em #01315E; tinta #062744, azul escuro e nunca
+      preto nem cinza; só line-work, nenhum card; Archivo variável, largura
+      estreita e peso 800 no display (bate com o wordmark real), largura normal
+      e tracking aberto nas legendas; divisórias em onda que são o meridiano do
+      emblema esticado, sempre com dois fios finos paralelos ao lado.
+      STORY: o pai entende em segundos que é uma escola de Goioerê que vai do
+      berçário ao 9º ano, acredita nela pelos quarenta anos ininterruptos e pelo
+      corpo docente, e sai pelo WhatsApp.
+      FIRST VIEWPORT: centrado. Emblema em escala de objeto com graticulado vivo
+      girando em volta; cartucho DESDE 1985 entre dois fios logo abaixo dele; o
+      nome em condensada caixa-alta; lema de uma linha; dois botões em pílula, o
+      primário azul é o WhatsApp; dica de rolagem.
+      SIGNATURE: uma linha contínua — o liga-pontos celeste — desenhada pelo
+      scroll do topo ao fim da página, com nós que acendem quando ela chega.
+      Desenhada por trecho, um SVG por seção, para manter a área de repintura
+      limitada; todos os trechos com a mesma regra de gatilho, então a ponta é
+      sempre o ponto da página no meio da tela e os trechos viram uma linha só.
+      Vive na calha lateral calculada da largura real e atravessa de um lado ao
+      outro por cima da onda. O globo do hero gira por cosseno de longitude na
+      mesma linha do tempo do scroll, mais uma deriva lenta constante.
+      FORM: carta celeste / planisfério escolar — candidato 7 da lista
+      fundamentada, atribuído pela rodada; seed 7a14471b.
+      FINISH: unreviewed and undocumented is unfinished; this build ends with the
+      finish review, the verdict, DESIGN.md, and every shipping raster carrying
+      its provenance.
     -->
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>

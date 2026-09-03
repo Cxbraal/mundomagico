@@ -231,29 +231,43 @@
 }
 
 .hero-acoes {
+  margin-bottom: 0;
+}
+
+.hero-acoes {
   margin-bottom: clamp(2rem, 5vw, 3rem);
 }
 
 /* --------------------------------------------------------- placa de 1985 */
 
+/* Fica acima do nome, colada no emblema. Embaixo dos botões ela era uma
+   terceira pílula do mesmo raio disputando atenção com a única conversão
+   da página — e ela não clica em nada. */
 .hero-plate {
-  margin: 0;
+  margin: 0 0 clamp(1rem, 2.5vw, 1.4rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+}
+
+.hero-plate::before,
+.hero-plate::after {
+  content: '';
+  width: clamp(28px, 6vw, 56px);
+  height: 1px;
+  background: var(--rule);
 }
 
 .plate-face {
   display: inline-flex;
   align-items: baseline;
   gap: 0.7rem;
-  padding: 0.55rem 1.5rem 0.65rem;
+  padding: 0.4rem 1.15rem 0.45rem;
   border-radius: 999px;
-  color: #fff;
-  background: linear-gradient(168deg, #0a6ac2 0%, var(--blue) 45%, #012f5b 100%);
-  border-top: 1px solid rgba(255, 255, 255, 0.45);
-  border-left: 1px solid rgba(255, 255, 255, 0.2);
-  border-right: 1px solid rgba(1, 34, 66, 0.6);
-  border-bottom: 1px solid var(--brass);
-  box-shadow: 0 12px 24px -14px rgba(1, 49, 94, 0.85),
-    inset 0 1px 0 rgba(255, 255, 255, 0.35), inset 0 -2px 5px rgba(0, 20, 40, 0.4);
+  color: var(--blue-deep);
+  background: transparent;
+  border: 1px solid var(--rule);
 }
 
 .plate-word {
@@ -262,14 +276,14 @@
   font-stretch: 104%;
   letter-spacing: 0.26em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.86);
+  color: var(--ink-soft);
 }
 
 .plate-year {
-  font-size: clamp(1.35rem, 2.6vw, 1.85rem);
+  font-size: var(--step-0);
   font-weight: 800;
-  font-stretch: 76%;
-  letter-spacing: 0.02em;
+  font-stretch: 88%;
+  letter-spacing: 0.06em;
   line-height: 1;
 }
 
@@ -383,6 +397,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
   gap: 0 clamp(1.5rem, 4vw, 4rem);
+  /* Quatro itens. Em auto-fit largo isso vira 3+1, e o órfão deixa uma regra
+     solta ocupando um terço da largura. Duas colunas fecham 2x2. */
   margin-top: clamp(2.5rem, 6vw, 4rem);
   padding-top: clamp(1.5rem, 3vw, 2rem);
   border-top: 1px solid var(--rule);
@@ -515,6 +531,9 @@
   .estrutura ul {
     grid-template-columns: repeat(3, 1fr);
   }
+  .confianca {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .estrutura li {
@@ -592,16 +611,18 @@
 .carta-nota {
   fill: var(--blue-deep);
   font-family: var(--face);
-  font-size: 11px;
+  /* Medido no tamanho renderizado, não em unidade de viewBox: a carta encolhe
+     para ~326px no celular, então 11px de viewBox chegariam como 9. */
+  font-size: 16px;
   font-weight: 800;
   font-stretch: 100%;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
 }
 
 .carta-nota {
   fill: var(--ink-soft);
   font-weight: 600;
-  font-size: 9.5px;
+  font-size: 13.5px;
 }
 
 .carta-norte path {
