@@ -1,0 +1,681 @@
+/* ============================================================== navegação */
+
+.nav {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 40;
+  padding-block: 0.9rem;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background 0.4s var(--ease-out), border-color 0.4s var(--ease-out),
+    padding 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
+}
+
+.nav.is-set {
+  background: #fff;
+  border-bottom-color: var(--rule-soft);
+  padding-block: 0.5rem;
+  box-shadow: 0 10px 28px -22px rgba(6, 39, 68, 0.6);
+}
+
+.nav-shell {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 4vw, 3rem);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  margin-right: auto;
+  color: var(--blue-deep);
+}
+
+.nav-brand img {
+  width: 40px;
+  height: 40px;
+}
+
+.nav-brand span {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.nav-brand b {
+  font-size: 0.95rem;
+  font-weight: 800;
+  font-stretch: 76%;
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
+}
+
+.nav-brand i {
+  font-size: 0.64rem;
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 105%;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.nav-links {
+  display: flex;
+  gap: clamp(1rem, 2.4vw, 2.1rem);
+}
+
+.nav-links a {
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink-soft);
+  padding-block: 0.6rem;
+  border-bottom: 1.5px solid transparent;
+  transition: color 0.3s var(--ease-out), border-color 0.3s var(--ease-out);
+}
+
+.nav-links a:hover {
+  color: var(--blue);
+  border-bottom-color: var(--blue);
+}
+
+.nav-act {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.5rem 1.05rem;
+  border-radius: 999px;
+  background: var(--blue);
+  color: #fff;
+  font-size: var(--step--1);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.3s var(--ease-out);
+}
+
+.nav-act:hover {
+  background: var(--blue-deep);
+  text-decoration: none;
+}
+
+@media (max-width: 860px) {
+  .nav-links {
+    display: none;
+  }
+  .nav-act span {
+    display: none;
+  }
+  .nav-act {
+    padding: 0.5rem 0.8rem;
+  }
+}
+
+/* =================================================================== hero */
+
+.hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: clamp(6rem, 15vh, 8.5rem);
+  padding-bottom: clamp(4rem, 9vh, 6rem);
+  overflow: hidden;
+  text-align: center;
+}
+
+.hero-halo {
+  position: absolute;
+  z-index: 0;
+  top: 46%;
+  left: 50%;
+  width: min(150vw, 1180px);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(1, 91, 175, 0.16) 0%, rgba(1, 91, 175, 0.06) 38%, transparent 66%);
+  pointer-events: none;
+}
+
+.hero-corpo {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-mark {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: clamp(14rem, 34vw, 21rem);
+  aspect-ratio: 1;
+  margin-bottom: clamp(1.25rem, 3vw, 2rem);
+}
+
+.hero-globe,
+.hero-emblema {
+  grid-area: 1 / 1;
+}
+
+.hero-globe {
+  width: 100%;
+  height: 100%;
+}
+
+.globe-limb {
+  fill: none;
+  stroke: rgba(1, 91, 175, 0.2);
+  stroke-width: 1;
+}
+
+.globe-limb-outer {
+  stroke: rgba(1, 91, 175, 0.12);
+}
+
+.globe-line {
+  fill: none;
+  stroke: rgba(1, 91, 175, 0.34);
+  stroke-width: 1;
+}
+
+.globe-tick {
+  stroke: rgba(1, 91, 175, 0.28);
+  stroke-width: 1;
+}
+
+.hero-emblema {
+  width: 56%;
+  height: auto;
+}
+
+.hero-nome {
+  color: var(--blue-deep);
+  margin-bottom: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+.hero-nome-linha {
+  display: block;
+  overflow: hidden;
+}
+
+.hero-nome-linha > span {
+  display: block;
+}
+
+.hero-nome-linha:first-child {
+  font-size: 0.42em;
+  font-weight: 700;
+  font-stretch: 88%;
+  letter-spacing: 0.34em;
+  line-height: 1.6;
+  color: var(--blue);
+}
+
+.hero-nome-forte {
+  color: var(--blue-deep);
+}
+
+.hero-lema {
+  max-width: 30ch;
+  margin-bottom: clamp(1.9rem, 4vw, 2.6rem);
+  color: var(--ink-soft);
+}
+
+.hero-acoes {
+  margin-bottom: clamp(2rem, 5vw, 3rem);
+}
+
+/* --------------------------------------------------------- placa de 1985 */
+
+.hero-plate {
+  margin: 0;
+}
+
+.plate-face {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  padding: 0.55rem 1.5rem 0.65rem;
+  border-radius: 999px;
+  color: #fff;
+  background: linear-gradient(168deg, #0a6ac2 0%, var(--blue) 45%, #012f5b 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.45);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  border-right: 1px solid rgba(1, 34, 66, 0.6);
+  border-bottom: 1px solid var(--brass);
+  box-shadow: 0 12px 24px -14px rgba(1, 49, 94, 0.85),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35), inset 0 -2px 5px rgba(0, 20, 40, 0.4);
+}
+
+.plate-word {
+  font-size: var(--step--1);
+  font-weight: 600;
+  font-stretch: 104%;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.plate-year {
+  font-size: clamp(1.35rem, 2.6vw, 1.85rem);
+  font-weight: 800;
+  font-stretch: 76%;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+/* ------------------------------------------------------------ dica de rolagem */
+
+.hero-cue {
+  position: relative;
+  z-index: 2;
+  margin-top: clamp(2rem, 6vh, 3.5rem);
+  width: 1px;
+  height: 54px;
+  background: var(--rule);
+  overflow: hidden;
+}
+
+.hero-cue i {
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 1px;
+  height: 18px;
+  background: var(--blue);
+  animation: desce 2.4s var(--ease-out) infinite;
+}
+
+@keyframes desce {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(54px);
+    opacity: 0;
+  }
+}
+
+/* ================================================================== ondas */
+
+.wave {
+  position: relative;
+  z-index: 3;
+  line-height: 0;
+  margin-top: -1px;
+  margin-bottom: -1px;
+}
+
+.wave svg {
+  display: block;
+  width: 100%;
+  height: clamp(64px, 9vw, 130px);
+}
+
+.wave-fio {
+  fill: none;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.wave--paper-blue {
+  background: var(--paper);
+}
+.wave--paper-blue .wave-campo {
+  fill: #015baf;
+}
+.wave--paper-blue .wave-fio {
+  stroke: rgba(1, 91, 175, 0.28);
+}
+
+.wave--blue-paper {
+  background: #015baf;
+}
+.wave--blue-paper .wave-campo {
+  fill: #fff;
+}
+.wave--blue-paper .wave-fio {
+  stroke: rgba(247, 253, 250, 0.4);
+}
+
+.wave--paper-deep {
+  background: var(--paper);
+}
+.wave--paper-deep .wave-campo {
+  fill: #01315e;
+}
+.wave--paper-deep .wave-fio {
+  stroke: rgba(1, 49, 94, 0.28);
+}
+
+/* ============================================================ campos azuis */
+
+.on-blue {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.contato.on-blue {
+  background: var(--blue-deep);
+}
+
+.on-blue .legend,
+.on-blue .lede,
+.on-blue .prose {
+  color: var(--ice);
+}
+
+/* ============================================================== confiança */
+
+.confianca {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+  gap: 0 clamp(1.5rem, 4vw, 4rem);
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+  padding-top: clamp(1.5rem, 3vw, 2rem);
+  border-top: 1px solid var(--rule);
+}
+
+.confianca li {
+  padding: 1.15rem 0;
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.confianca strong {
+  display: block;
+  font-size: var(--step-0);
+  font-weight: 800;
+  font-stretch: 88%;
+  letter-spacing: -0.008em;
+  color: var(--white);
+  margin-bottom: 0.35rem;
+}
+
+.confianca span {
+  display: block;
+  font-size: var(--step--1);
+  line-height: 1.6;
+  color: var(--ice);
+}
+
+/* ================================================================ percurso */
+
+.prose-center {
+  max-width: 58ch;
+  margin-inline: auto;
+}
+
+.escala {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  padding-top: 2.5rem;
+}
+
+.escala-eixo {
+  position: absolute;
+  top: 0;
+  left: 8%;
+  right: 8%;
+  height: 1px;
+  background: linear-gradient(to right, var(--rule), var(--blue-lit), var(--rule));
+}
+
+.etapa {
+  position: relative;
+  text-align: center;
+  padding-top: 1.4rem;
+}
+
+.etapa-marca {
+  position: absolute;
+  top: -0.3rem;
+  left: 50%;
+  width: 11px;
+  height: 11px;
+  margin-left: -5.5px;
+  border: 1.5px solid var(--blue);
+  border-radius: 50%;
+  background: var(--paper);
+}
+
+.etapa-turma {
+  font-size: var(--step-1);
+  font-weight: 800;
+  font-stretch: 84%;
+  letter-spacing: -0.012em;
+  line-height: 1.15;
+  color: var(--blue-deep);
+  margin: 0;
+}
+
+.etapa-idade {
+  margin-top: 0.35rem;
+  font-size: var(--step--1);
+  font-weight: 700;
+  color: var(--blue);
+}
+
+.etapa-etapa {
+  margin-top: 0.55rem;
+  font-size: var(--step--1);
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 760px) {
+  .escala {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem 1rem;
+    padding-top: 0;
+  }
+  .escala-eixo {
+    display: none;
+  }
+  .etapa {
+    padding-top: 0;
+    text-align: left;
+    padding-left: 1.4rem;
+  }
+  .etapa-marca {
+    top: 0.5rem;
+    left: 0;
+    margin-left: 0;
+  }
+}
+
+/* ------------------------------------------------------------- estrutura */
+
+.estrutura {
+  margin-top: clamp(5rem, 12vh, 8.5rem);
+}
+
+.estrutura ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 0 clamp(1.5rem, 3vw, 2.5rem);
+  border-top: 1px solid var(--rule);
+}
+
+@media (min-width: 900px) {
+  .estrutura ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.estrutura li {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--rule-soft);
+  font-weight: 600;
+  font-stretch: 96%;
+  color: var(--blue-deep);
+}
+
+.estrutura li svg {
+  color: var(--blue);
+}
+
+.estrutura-nota {
+  margin-top: 1.4rem;
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+/* ============================================================ localização */
+
+.onde {
+  padding-top: clamp(4rem, 9vh, 6.5rem);
+}
+
+.carta {
+  width: min(100%, 32rem);
+  margin-inline: auto;
+}
+
+.carta svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+}
+
+.carta-campo {
+  fill: #eef5fb;
+}
+
+.carta-grade path {
+  fill: none;
+  stroke: rgba(1, 91, 175, 0.14);
+  stroke-width: 1;
+}
+
+.carta-eixo {
+  stroke: rgba(1, 91, 175, 0.35);
+  stroke-width: 1;
+  stroke-dasharray: 4 5;
+}
+
+.carta-halo {
+  fill: none;
+  stroke: rgba(1, 91, 175, 0.55);
+  stroke-width: 1;
+}
+
+.carta-halo-2 {
+  stroke: rgba(1, 91, 175, 0.3);
+}
+
+.carta-ponto {
+  fill: var(--blue);
+}
+
+.carta-rotulo,
+.carta-nota {
+  fill: var(--blue-deep);
+  font-family: var(--face);
+  font-size: 11px;
+  font-weight: 800;
+  font-stretch: 100%;
+  letter-spacing: 0.14em;
+}
+
+.carta-nota {
+  fill: var(--ink-soft);
+  font-weight: 600;
+  font-size: 9.5px;
+}
+
+.carta-norte path {
+  fill: none;
+  stroke: var(--ink-soft);
+  stroke-width: 1.2;
+}
+
+.endereco {
+  font-style: normal;
+  font-size: var(--step-1);
+  line-height: 1.55;
+  color: var(--blue-deep);
+  font-weight: 600;
+  margin: clamp(1.5rem, 3vw, 2rem) 0 clamp(1.5rem, 3vw, 2rem);
+}
+
+/* ================================================================ contato */
+
+.contato {
+  padding-bottom: clamp(4.5rem, 10vh, 7rem);
+}
+
+.canais {
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  padding-top: clamp(1.5rem, 3vw, 2rem);
+  border-top: 1px solid var(--rule);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem clamp(1.5rem, 4vw, 3rem);
+}
+
+.canais a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-height: 48px;
+  color: var(--ice);
+  text-decoration: none;
+  transition: color 0.3s var(--ease-out);
+}
+
+.canais a:hover {
+  color: var(--white);
+}
+
+/* ================================================================= rodapé */
+
+.rodape {
+  position: relative;
+  z-index: 2;
+  padding-block: clamp(2rem, 5vh, 3rem);
+  background: var(--blue-deep);
+  border-top: 1px solid rgba(247, 253, 250, 0.12);
+}
+
+.rodape-shell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.rodape img {
+  width: 42px;
+  height: 42px;
+  opacity: 0.85;
+}
+
+@media (max-width: 560px) {
+  .rodape-shell {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}

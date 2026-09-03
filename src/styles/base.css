@@ -1,0 +1,321 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--face);
+  font-size: var(--step-0);
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+figure {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: var(--rule);
+  text-underline-offset: 0.28em;
+  text-decoration-thickness: 1px;
+}
+
+a:hover {
+  text-decoration-color: currentColor;
+}
+
+:where(a, button, [tabindex]):focus-visible {
+  outline: 2px solid var(--blue-lit);
+  outline-offset: 4px;
+  border-radius: 999px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ------------------------------------------------------------------ escala */
+
+.display {
+  font-size: var(--step-4);
+  font-weight: 800;
+  font-stretch: 72%;
+  line-height: 0.94;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.title {
+  font-size: var(--step-3);
+  font-weight: 800;
+  font-stretch: 76%;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.subtitle {
+  font-size: var(--step-2);
+  font-weight: 700;
+  font-stretch: 84%;
+  line-height: 1.12;
+  letter-spacing: -0.014em;
+  text-wrap: balance;
+}
+
+.legend {
+  font-size: var(--step--1);
+  font-weight: 600;
+  font-stretch: 105%;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.lede {
+  font-size: var(--step-1);
+  line-height: 1.55;
+  color: var(--ink-soft);
+  text-wrap: balance;
+}
+
+.prose {
+  color: var(--ink-soft);
+  font-size: var(--step-1);
+  line-height: 1.62;
+}
+
+.prose p + p {
+  margin-top: 1em;
+}
+
+/* -------------------------------------------------------------- estrutura */
+
+.shell {
+  width: min(100% - var(--gut) * 2, var(--shell));
+  margin-inline: auto;
+}
+
+.shell-mid {
+  width: min(100% - var(--gut) * 2, 54rem);
+  margin-inline: auto;
+}
+
+.section {
+  position: relative;
+  padding-block: var(--bay);
+  background: var(--paper);
+  scroll-margin-top: 5rem;
+}
+
+.section > * {
+  position: relative;
+  z-index: 2;
+}
+
+.section-head {
+  text-align: center;
+  margin-bottom: clamp(2rem, 5vw, 3.25rem);
+}
+
+.section-head .lede {
+  margin-top: 1.1rem;
+  margin-inline: auto;
+  max-width: 46ch;
+}
+
+.center {
+  text-align: center;
+}
+
+/* --------------------------------------------------------------- a linha */
+
+.thread {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.thread path {
+  fill: none;
+  stroke: var(--thread);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+.star-core {
+  fill: var(--thread);
+  opacity: 0;
+  transition: opacity 0.55s var(--ease-out);
+}
+
+.star-halo {
+  fill: none;
+  stroke: var(--thread);
+  stroke-width: 1;
+  opacity: 0;
+  transition: opacity 0.7s var(--ease-out);
+}
+
+.star.is-lit .star-core {
+  opacity: 1;
+}
+
+.star.is-lit .star-halo {
+  opacity: 0.45;
+}
+
+/* ------------------------------------------------------------------ ação */
+
+.acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  justify-content: center;
+}
+
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  min-height: 54px;
+  padding: 0.9rem 1.5rem;
+  font-size: var(--step-0);
+  font-weight: 700;
+  font-stretch: 94%;
+  letter-spacing: -0.008em;
+  text-decoration: none;
+  border: 1.5px solid var(--blue);
+  border-radius: 999px;
+  color: var(--blue);
+  background: transparent;
+  transition: background 0.35s var(--ease-out), color 0.35s var(--ease-out),
+    transform 0.35s var(--ease-out), border-color 0.35s var(--ease-out);
+}
+
+.botao:hover {
+  background: var(--blue);
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.botao:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 560px) {
+  .acoes {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.botao--primario {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+  box-shadow: 0 12px 28px -14px rgba(1, 49, 94, 0.75);
+}
+
+.botao--primario:hover {
+  background: var(--blue-deep);
+  border-color: var(--blue-deep);
+  box-shadow: 0 18px 38px -16px rgba(1, 49, 94, 0.85);
+}
+
+/* Sobre campo azul as tintas trocam de lado. */
+.on-blue .botao {
+  border-color: rgba(247, 253, 250, 0.55);
+  color: var(--white);
+}
+
+.on-blue .botao:hover {
+  background: var(--white);
+  border-color: var(--white);
+  color: var(--blue-deep);
+}
+
+.on-blue .botao--primario {
+  background: var(--white);
+  border-color: var(--white);
+  color: var(--blue-deep);
+  box-shadow: 0 14px 30px -16px rgba(0, 12, 25, 0.8);
+}
+
+.on-blue .botao--primario:hover {
+  background: #fff;
+  border-color: #fff;
+  color: var(--blue-deep);
+}
+
+/* ---------------------------------------------------------------- glifos */
+
+.glyph {
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.visualmente-oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------- movimento reduzido */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

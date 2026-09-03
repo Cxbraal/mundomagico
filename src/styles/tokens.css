@@ -1,0 +1,109 @@
+/* Tokens — CARTA CELESTE, tiragem em papel branco.
+   Fundo branco, azul como destaque que toma regiões inteiras.
+   Azuis amostrados do JPG original do logo. */
+
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-display: swap;
+  src: url('/mundomagico/fonts/archivo-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-display: swap;
+  src: url('/mundomagico/fonts/archivo-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+:root {
+  /* ---- papel ---- */
+  --paper: #ffffff;
+  --paper-2: #eef5fb; /* banda clara, azul quase apagado */
+
+  /* ---- tinta sobre papel ---- */
+  --ink: #062744; /* corpo de texto, azul escuro e nunca preto */
+  --ink-soft: #3d6485; /* secundário, legenda de eixo */
+
+  /* ---- azul de marca ---- */
+  --blue: #015baf; /* destaque; toma seções inteiras */
+  --blue-deep: #01315e; /* campo azul mais fundo, rodapé */
+  --blue-lit: #0689cc; /* linha acesa, nó alcançado */
+
+  /* ---- tinta sobre azul ---- */
+  --white: #f7fdfa;
+  --ice: #cbe4f2;
+
+  --brass: #c9963f; /* fio de latão na placa de 1985 */
+
+  /* ---- traço ---- */
+  --rule: rgba(6, 39, 68, 0.16);
+  --rule-soft: rgba(6, 39, 68, 0.08);
+  --thread: rgba(1, 91, 175, 0.75);
+
+  /* ---- tipografia ---- */
+  --face: 'Archivo', 'Segoe UI', system-ui, sans-serif;
+
+  --step--1: clamp(0.8125rem, 0.79rem + 0.11vw, 0.875rem);
+  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --step-1: clamp(1.2rem, 1.12rem + 0.4vw, 1.45rem);
+  --step-2: clamp(1.5rem, 1.34rem + 0.8vw, 2.05rem);
+  --step-3: clamp(1.95rem, 1.55rem + 2vw, 3.2rem);
+  --step-4: clamp(2.4rem, 1.55rem + 4.2vw, 4.75rem);
+
+  /* ---- ritmo ---- */
+  --gut: clamp(1.25rem, 4vw, 2.5rem);
+  --bay: clamp(4rem, 9vh, 7rem);
+  --measure: 66ch;
+  --shell: 78rem;
+
+  /* ---- movimento ---- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Um campo azul inverte a folha inteira: mesmos nomes, tinta trocada. */
+.on-blue {
+  --paper: var(--blue);
+  --paper-2: var(--blue-deep);
+  --ink: var(--white);
+  --ink-soft: var(--ice);
+  --rule: rgba(247, 253, 250, 0.28);
+  --rule-soft: rgba(247, 253, 250, 0.14);
+  --thread: rgba(247, 253, 250, 0.9);
+  --blue-lit: #9fd6f5;
+}
+
+/* Superfícies do navegador que ninguém desenha e mesmo assim entregam o design. */
+::selection {
+  background: var(--blue);
+  color: #fff;
+}
+:root {
+  color-scheme: light;
+  accent-color: var(--blue);
+  scrollbar-color: var(--blue) var(--paper-2);
+  scrollbar-width: thin;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #eef5fb;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--blue);
+  border: 2px solid #eef5fb;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--blue-deep);
+}
